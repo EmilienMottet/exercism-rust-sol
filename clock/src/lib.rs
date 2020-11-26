@@ -10,8 +10,8 @@ impl Clock {
     pub fn new(hours: i32, minutes: i32) -> Self {
         let all_minutes = hours * 60 + minutes;
         Clock {
-            hours: ((((all_minutes as f32 / 60.0).floor() as i32) % 24) + 24) % 24,
-            minutes: ((all_minutes % 60) + 60) % 60,
+            hours: all_minutes.div_euclid(60).rem_euclid(24),
+            minutes: all_minutes.rem_euclid(60),
         }
     }
 
