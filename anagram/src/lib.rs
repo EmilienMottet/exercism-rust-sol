@@ -15,6 +15,6 @@ pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'
 
 fn compute_str(word: &str) -> String {
     let mut sorted: Vec<char> = word.chars().collect();
-    sorted.sort_by(|a, b| b.cmp(a));
+    sorted.sort_unstable();
     String::from_iter(sorted)
 }
